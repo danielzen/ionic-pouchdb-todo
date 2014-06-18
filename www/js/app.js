@@ -8,4 +8,10 @@ angular.module('todo', ['ionic'])
         {title: "Third", completed: false},
       ];
 
+    ////////////////////////
+    // TOGGLE TASK COMPLETED
+    ////////////////////////
+    $scope.completionChanged = function(task) {
+      task.completed = !task.completed;
+    };
   });
