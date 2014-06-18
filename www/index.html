@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>ToDo v4 PouchDb</title>
+  <title>ToDo v5 Edit/Delete</title>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
@@ -11,9 +11,6 @@
   <!-- ionic/angularjs js -->
   <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-  <!-- ########################################### -->
-  <!-- ###   Add PouchDb JavaScript Library    ### -->
-  <!-- ########################################### -->
   <script src="lib/pouchdb/dist/pouchdb-nightly.js"></script>
 
   <!-- cordova script (this will be a 404 during development) -->
@@ -35,7 +32,17 @@
     <ion-item ng-repeat="task in tasks" class="item-icon-right"
               ng-class="{complete: task.completed}"
               ng-click="completionChanged(task)">
+      <i class="icon ion-ios7-arrow-left"></i>
       {{task.title}}
+      <!-- ########################################### -->
+      <!-- ### Add Edit, Delete ion-option-buttons ### -->
+      <!-- ########################################### -->
+      <ion-option-button class="button-energized" ng-click="editTitle(task)">
+        Edit
+      </ion-option-button>
+      <ion-option-button class="button-assertive" ng-click="delete(task)">
+        Delete
+      </ion-option-button>
     </ion-item>
   </ion-list>
 </ion-content>
