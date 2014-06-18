@@ -3,17 +3,33 @@ angular.module('todo', ['ionic'])
   .factory('todoDb', function() {
     var db = new PouchDB('todos');
     return db;
-  })                                                   // inject ionicPopup & ionicListDelegate
+  })
   .controller('TodoCtrl', function($scope, $ionicModal, todoDb, $ionicPopup, $ionicListDelegate) {
     // Initialize tasks
     $scope.tasks = [];
+
+    ////////////////////////
+    // Online sync to CouchDb
+    ////////////////////////
+    $scope.online = false;
+    $scope.toggleOnline = function() {
+      $scope.online = !$scope.online;
+      if ($scope.online) {  // Read http://pouchdb.com/api.html#sync
+        $scope.sync = todoDb.sync('http://127.0.0.1:5984/todos', {live: true})
+          .on('error', function (err) {
+            console.log("Syncing stopped");
+            console.log(err);
+          });
+      } else {
+        $scope.sync.cancel();
+      }
+    };
 
     $scope.completionChanged = function(task) {
       task.completed = !task.completed;
       $scope.update(task);
     };
 
-    // list changes to PouchDb database
     todoDb.changes({
       live: true,
       onChange: function (change) {
@@ -29,8 +45,8 @@ angular.module('todo', ['ionic'])
               } // CREATE / READ
               $scope.tasks.push(doc);
             });
-          })     //////////////////////
-        } else { // if change.delete //
+          })
+        } else { //DELETE
           $scope.$apply(function () {
             for (var i = 0; i<$scope.tasks.length; i++) {
               if ($scope.tasks[i]._id === change.id) {
@@ -54,21 +70,15 @@ angular.module('todo', ['ionic'])
       });
     };
 
-    ////////////////////////
-    // DELETE task IN POUCHDB
-    ////////////////////////
     $scope.delete = function(task) {
       todoDb.get(task._id, function (err, doc) {
         todoDb.remove(doc, function (err, res) {});
       });
     };
 
-    ////////////////////////
-    // EDIT task.title with ionicPopup
-    ////////////////////////
     $scope.editTitle = function (task) {
       var scope = $scope.$new(true);
-      scope.data = {response: task.title };
+      scope.data = { response: task.title } ;
       $ionicPopup.prompt({
         title: 'Edit task:',
         scope: scope,
