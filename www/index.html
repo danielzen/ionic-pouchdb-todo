@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>ToDo v2 Toggle</title>
+  <title>ToDo v3 New Tasks</title>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
@@ -21,18 +21,51 @@
 <body ng-app="todo" ng-controller="TodoCtrl">
 <ion-header-bar class="bar-positive">
   <h1 class="title">Todos</h1>
+  <!-- ########################################### -->
+  <!-- ###      BUTTON TO CREATE NEW TASK      ### -->
+  <!-- ########################################### -->
+  <button class="button button-icon" ng-click="newTask()">
+    <i class="ion-compose icon"></i>
+  </button>
 </ion-header-bar>
 <ion-content>
   <ion-list>
     <ion-item ng-repeat="task in tasks" class="item-icon-right"
               ng-class="{complete: task.completed}"
               ng-click="completionChanged(task)">
-      <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
-      <!-- ^^^ CLICKING ON TASK TOGGLES COMPLETION ^^^ -->
-      <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
       {{task.title}}
     </ion-item>
   </ion-list>
 </ion-content>
+
+<!-- ########################################### -->
+<!-- ###       ng-template for new-task      ### -->
+<!-- ########################################### -->
+<script id="new-task.html" type="text/ng-template">
+
+  <div class="modal">
+    <!-- Modal header bar -->
+    <ion-header-bar class="bar-secondary">
+      <h1 class="title">New Task</h1>
+      <button class="button button-clear button-positive" ng-click="closeNewTask()">Cancel</button>
+    </ion-header-bar>
+
+    <!-- Modal content area -->
+    <ion-content>
+      <form ng-submit="createTask(task)">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="What do you need to do?" ng-model="task.title">
+          </label>
+        </div>
+        <div class="padding">
+          <button type="submit" class="button button-block button-positive">Create Task</button>
+        </div>
+      </form>
+    </ion-content>
+  </div>
+
+</script>
+
 </body>
 </html>
