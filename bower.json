@@ -2,9 +2,17 @@
   "name": "Todo",
   "private": "true",
   "devDependencies": {
-    "ionic": "driftyco/ionic-bower#1.0.0-beta.6"
+    "ionic": "driftyco/ionic-bower#1.0.0-beta.12"
   },
   "dependencies": {
-    "pouchdb": "~2.2.3"
+    "pouchdb": "~3",
+    "angular-pouchdb": "angular-pouchdb/angular-pouchdb"
+  },
+  "resolutions": {
+    "angular": "~1.2.12",
+    "angular-ui-router": "0.2.10",
+    "angular-animate": "~1.2.17",
+    "angular-sanitize": "~1.2.17",
+    "pouchdb": "~3"
   }
 }

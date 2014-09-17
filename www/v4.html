@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>v6:ToDo - online</title>
+  <title>v4:ToDo - PouchDb</title>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
   <link href="lib/ionic/css/ionic.css" rel="stylesheet">
@@ -11,24 +11,21 @@
   <!-- ionic/angularjs js -->
   <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+  <!-- ########################################### -->
+  <!-- ###   Add PouchDb JavaScript Library    ### -->
+  <!-- ########################################### -->
   <script src="lib/pouchdb/dist/pouchdb.js"></script>
 
   <!-- cordova script (this will be a 404 during development) -->
   <script src="cordova.js"></script>
 
   <!-- your app's js -->
-  <script src="js/app.js"></script>
+  <script src="js/v4.js"></script>
 </head>
 
 <body ng-app="todo" ng-controller="TodoCtrl">
 <ion-header-bar class="bar-positive">
   <h1 class="title">Todos</h1>
-  <!-- ########################################### -->
-  <!-- ###    Add button for online toggle     ### -->
-  <!-- ########################################### -->
-  <button class="button button-icon" ng-click="toggleOnline()">
-    <i class="icon" ng-class="{'ion-connection-bars' : online, 'ion-alert-circled' : !online}"></i>
-  </button>
   <button class="button button-icon" ng-click="newTask()">
     <i class="ion-compose icon"></i>
   </button>
@@ -38,14 +35,7 @@
     <ion-item ng-repeat="task in tasks" class="item-icon-right"
               ng-class="{complete: task.completed}"
               ng-click="completionChanged(task)">
-      <i class="icon ion-ios7-arrow-left"></i>
       {{task.title}}
-      <ion-option-button class="button-energized" ng-click="editTitle(task)">
-        Edit
-      </ion-option-button>
-      <ion-option-button class="button-assertive" ng-click="delete(task)">
-        Delete
-      </ion-option-button>
     </ion-item>
   </ion-list>
 </ion-content>
