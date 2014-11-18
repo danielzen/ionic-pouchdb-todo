@@ -1,22 +1,23 @@
 ionic-pouchdb-todo
 ==========================
 
-A simple Ionic Todo app with a PouchDb local storage backend configured to sync
-with a CouchDb installation. Demo of offline functionality with server synchronization.
+An Example of the use of ng-pouchdb, a 4-way data-binding library, in action using a simple Ionic Todo app with a 
+PouchDb local storage backend configured to sync with a CouchDb installation. This is a demo of offline functionality
+with server synchronization.
 
-You can watch me demo building the app at [FITC Spotlight: AngularJS](http://youtu.be/6ecuA-pOev0?t=14m9s) in Toronto.
+You can watch me demo building an early version of the app at 
+[FITC Spotlight: AngularJS](http://youtu.be/6ecuA-pOev0?t=14m9s) in Toronto.
 
-This repository has multiple releases you can download or tags you can checkout to see the incremental building of the application.
+This repository has multiple releases you can download or tags you can checkout to see the incremental building 
+of the application. Only the final version using the ng-pouchdb library.
 
 ## Installation
 
-I've included the most current version of Ionic (1.0.0-beta.6) and
-PouchDb (2.2.3) as of this check-in. This will enable running locally 
-the app in a browser without needing `node` to install `cordova`, `ionic`, or `gulp` 
+You may need to install bower globally with `npm install -g bower` before running `bower install`, to download 
+the necessary required frontend libraries. You may need to do a `npm -g install bower`, if you haven't already. 
 
 ## Run the App
-
-All of the necessary javascript files are in the repo for simplicities sake. 
+ 
 You can `cd` into the `www` directory and run 
 
 ```bash
@@ -49,27 +50,20 @@ ionic emulate ios
 
 ## Building Out & Updating Ionic or PouchDb
 
+To update to a new version of Ionic, open bower.json and change the version listed there.
+
+For example, to update from version `1.0.0-beta.12` to `1.0.0-beta.13`, open bower.json and change this:
+
+```
+"ionic": "driftyco/ionic-bower#1.0.0-beta.12"
+```
+
+After saving the update to bower.json file, run `bower install`.
+
+I was a little forward thinking adding  the `package.json` file.
 To continue working on this repository, adding tests, using SASS, you can
 
 ```bash
 $ npm install
 $ gulp install
 ```
-
-To update to a new version of Ionic, open bower.json and change the version listed there.
-
-For example, to update from version `1.0.0-beta.6` to `1.0.0-beta.7`, open bower.json and change this:
-
-```
-"ionic": "driftyco/ionic-bower#1.0.0-beta.6"
-```
-
-To this:
-
-```
-"ionic": "driftyco/ionic-bower#1.0.0-beta.7"
-```
-
-After saving the update to bower.json file, run `gulp install`.
-
-Alternatively, install bower globally with `npm install -g bower` and run `bower install`.

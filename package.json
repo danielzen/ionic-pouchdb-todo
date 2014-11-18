@@ -1,11 +1,11 @@
 {
-    "name": "ionic-project",
-    "version": "1.0.0",
-    "description": "An Ionic project",
+    "name": "Ionic PouchDb Todo",
+    "version": "1.1.0",
+    "description": "An Example of the ng-pouchdb library in action",
     "repository" :
     {
 	"type" : "git",
-	"url" : "http://github.com/danielzen/ionic-pouchdb-sync.git"
+	"url" : "http://github.com/danielzen/ionic-pouchdb-todo.git"
     },
     "dependencies": {
         "gulp": "^3.5.6",
