@@ -27,7 +27,7 @@ You can then just open [http://localhost:8000/index.html](http://localhost:8000/
 
 Personally I use WebStorm which has a built in server. From a JetBrains product, you can select "View...", "Open in Browser" on index.html.
 
-The final version of this demo requires you to [download and install CouchDb](http://couchdb.apache.org/#download), which runs on port 5984.
+The final version of this demo requires you to [download and install CouchDb](http://couchdb.apache.org/#download), which runs on port 5984. And, [enable CORS](http://wiki.apache.org/couchdb/CORS#Enabling_CORS).
 
 ## iOS version
 
