@@ -1,5 +1,5 @@
 {
-    "name": "Ionic PouchDb Todo",
+    "name": "ionic-pouchdb-todo",
     "version": "1.1.0",
     "description": "An Example of the ng-pouchdb library in action",
     "repository" :
