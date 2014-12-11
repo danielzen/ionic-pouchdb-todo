@@ -22,6 +22,12 @@ You can `cd` into the `www` directory and run
 ```bash
 python -m SimpleHTTPServer 8000
 ```
+If you're using Python 3.x or higher
+
+```bash
+python -m http.server 8000
+```
+
 
 You can then just open [http://localhost:8000/index.html](http://localhost:8000/index.html) in a browser.
 
