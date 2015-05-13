@@ -1,7 +1,11 @@
 ionic-pouchdb-todo
 ==========================
 
-An Example of the use of [ng-pouchdb](https://github.com/danielzen/ng-pouchdb), a 4-way data-binding library, in action using a simple Ionic Todo app with a PouchDb local storage backend configured to sync with a CouchDb installation. This is a demo of offline functionality with server synchronization. And is part of my Offline data synchronization talk.
+This is an older example of the use of [ng-pouchdb](https://github.com/danielzen/ng-pouchdb).
+
+Please see the latest example of this library in use at http://github.com/danielzen/todo-ng-pouchdb
+
+This is a 4-way data-binding library, in action using a simple Ionic Todo app with a PouchDb local storage backend configured to sync with a CouchDb installation. This is a demo of offline functionality with server synchronization. And is part of my Offline data synchronization talk.
  Slides available at: [http://zndg.tl/ng-pouchdb](http://zndg.tl/ng-pouchdb)
 
 You can watch me demo building an early version of the app at 
