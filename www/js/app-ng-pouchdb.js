@@ -5,7 +5,7 @@ angular.module('todo', ['ionic','pouchdb'])
     ////////////////////////
     // Replace PouchDb database calls with pouchCollection
     ////////////////////////
-    $scope.todos = pouchCollection('todoslib');
+    $scope.todos = pouchCollection('todos');
 
     $scope.online = false;
     $scope.toggleOnline = function() {
@@ -14,7 +14,7 @@ angular.module('todo', ['ionic','pouchdb'])
         ////////////////////////
         // sync to CouchDb with pouchCollection reference
         ////////////////////////
-        $scope.sync = $scope.todos.$db.replicate.sync('http://127.0.0.1:5984/todoslib', {live: true})
+        $scope.sync = $scope.todos.$db.replicate.sync('http://127.0.0.1:5984/todos', {live: true})
           .on('error', function (err) {
             console.log("Syncing stopped");
             console.log(err);
@@ -67,7 +67,8 @@ angular.module('todo', ['ionic','pouchdb'])
 
     $scope.createTask = function(task) {
       task.completed = false;
-      $scope.todos.$add(task);
+      $scope.todos.$add(angular.copy(task));
+      task.title = '';
       console.log("Added "+task.title+" to todos");
       $scope.taskModal.hide();
     };

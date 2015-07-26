@@ -1,15 +1,15 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.zendigital.ionic-pouchdb-todo" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>IonPouch Todo</name>
-    <description>
+  <name>IonPouch Todo</name>
+  <description>
       An Ionic Framework TODO demo with a PouchDB sync backend
     </description>
-    <author email="daniel@zendigital.com" href="http://zendigital.com">
+  <author email="daniel@zendigital.com" href="http://zendigital.com">
       Zen Digital
     </author>
-    <content src="index.html" />
-    <access origin="*" />
-    <preference name="fullscreen" value="true" />
-    <preference name="webviewbounce" value="true" />
-    <icon src="www/res/ios/icon.png" />
+  <content src="index.html"/>
+  <access origin="*"/>
+  <preference name="fullscreen" value="true"/>
+  <preference name="webviewbounce" value="true"/>
+  <icon src="www/res/ios/icon.png"/>
 </widget>
