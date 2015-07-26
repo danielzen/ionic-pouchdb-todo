@@ -1,10 +1,10 @@
 .*.sw*
 *.keystore
-node_modules
-www/lib
+node_modules/
+www/lib/
 .idea
 .DS_Store
 tmp
-platforms
-
+platforms/
+resources/
 

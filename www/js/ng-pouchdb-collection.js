@@ -1,6 +1,6 @@
-angular.module('pouchdb')
-
-  .factory('pouchCollection', ['$timeout', 'pouchdb', function($timeout, pouchdb) {
+angular
+.module('pouchdb')
+  .factory('pouchCollection', function($timeout, pouchDB) {
 
     /**
      * @class item in the collection
@@ -17,13 +17,13 @@ angular.module('pouchdb')
 
     /**
      * create a pouchCollection
-     * @param  {String} collectionUrl The pouchdb url where the collection lives
+     * @param  {String} collectionUrl The pouchDB url where the collection lives
      * @return {Array}                An array that will hold the items in the collection
      */
     return function(collectionUrl) {
       var collection = [];
       var indexes = {};
-      var db = collection.$db = pouchdb.create(collectionUrl);
+      var db = collection.$db = pouchDB(collectionUrl);
 
       function getIndex(prevId) {
         return prevId ? indexes[prevId] + 1 : 0;
@@ -115,4 +115,4 @@ angular.module('pouchdb')
 
       return collection;
     };
-  }]);
+  });
